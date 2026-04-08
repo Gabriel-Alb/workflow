@@ -20,7 +20,7 @@ const allowedOrigins = (process.env.CORS_ORIGINS || 'http://localhost:5173')
 app.use(
   cors({
     origin: (origin, cb) => {
-      // Permite requisições sem origin (ex: Postman, apps mobile em dev)
+      // Permite requisições sem origin (Postman, apps mobile em dev, Swagger UI same-origin)
       if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
       cb(new Error(`Origem não permitida pelo CORS: ${origin}`));
     },
