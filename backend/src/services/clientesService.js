@@ -7,6 +7,16 @@ async function listar({ q, page = 1, limit = 20 } = {}) {
   return { data: rows, total, page: Number(page), limit: Number(limit) };
 }
 
+async function buscarPorCpf(cpf) {
+  const digits = cpf.replace(/\D/g, '');
+  return clientesRepository.buscarPorCpf(digits);
+}
+
+async function buscarPorTelefone(telefone) {
+  const digits = telefone.replace(/\D/g, '');
+  return clientesRepository.buscarPorTelefone(digits);
+}
+
 async function buscarPorId(id) {
   const cliente = await clientesRepository.buscarPorId(id);
   if (!cliente) throw AppError.notFound('Cliente não encontrado');
@@ -33,4 +43,4 @@ async function deletar(id) {
   await clientesRepository.deletar(id);
 }
 
-module.exports = { listar, buscarPorId, criar, atualizar, deletar };
+module.exports = { listar, buscarPorTelefone, buscarPorCpf, buscarPorId, criar, atualizar, deletar };

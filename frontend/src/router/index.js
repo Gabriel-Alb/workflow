@@ -15,6 +15,11 @@ const router = createRouter({
       name: 'home',
       component: () => import('@/views/HomeView.vue'),
     },
+    {
+      path: '/novo-cliente',
+      name: 'novo-cliente',
+      component: () => import('@/views/NovoClienteView.vue'),
+    },
     // Redireciona qualquer rota desconhecida para home
     {
       path: '/:pathMatch(.*)*',

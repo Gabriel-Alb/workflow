@@ -73,6 +73,10 @@ const router = Router();
  */
 router.get('/', ctrl.listar);
 
+// IMPORTANTE: estas rotas devem ficar antes de /:id para não ser capturadas como id
+router.get('/telefone/:telefone', ctrl.buscarPorTelefone);
+router.get('/cpf/:cpf', ctrl.buscarPorCpf);
+
 /**
  * @openapi
  * /api/clientes/{id}:

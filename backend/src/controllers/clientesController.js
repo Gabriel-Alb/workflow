@@ -1,5 +1,24 @@
 const clientesService = require('../services/clientesService');
 
+async function buscarPorCpf(req, res, next) {
+  try {
+    const cliente = await clientesService.buscarPorCpf(req.params.cpf);
+    res.json(cliente);
+  } catch (err) {
+    next(err);
+  }
+}
+
+async function buscarPorTelefone(req, res, next) {
+  try {
+    // Retorna o cliente ou null — não lança 404 ("não encontrado" é resposta válida aqui)
+    const cliente = await clientesService.buscarPorTelefone(req.params.telefone);
+    res.json(cliente);
+  } catch (err) {
+    next(err);
+  }
+}
+
 async function listar(req, res, next) {
   try {
     const { q, page, limit } = req.query;
@@ -46,4 +65,4 @@ async function deletar(req, res, next) {
   }
 }
 
-module.exports = { listar, buscarPorId, criar, atualizar, deletar };
+module.exports = { listar, buscarPorCpf, buscarPorTelefone, buscarPorId, criar, atualizar, deletar };

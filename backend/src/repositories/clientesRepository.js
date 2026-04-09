@@ -25,6 +25,29 @@ async function listar({ q, limit, offset }) {
   return { rows: dataRes.rows, total: Number(countRes.rows[0].count) };
 }
 
+async function buscarPorTelefone(telefone) {
+  // Compara somente os dígitos, independente de como o telefone foi armazenado
+  const { rows } = await pool.query(
+    `SELECT id, nome, telefone, cpf, email, informacao_adicional, data_criacao
+     FROM clientes
+     WHERE regexp_replace(telefone, '[^0-9]', '', 'g') = $1
+     LIMIT 1`,
+    [telefone]
+  );
+  return rows[0] || null;
+}
+
+async function buscarPorCpf(cpf) {
+  const { rows } = await pool.query(
+    `SELECT id, nome, telefone, cpf, email, informacao_adicional, data_criacao
+     FROM clientes
+     WHERE regexp_replace(cpf, '[^0-9]', '', 'g') = $1
+     LIMIT 1`,
+    [cpf]
+  );
+  return rows[0] || null;
+}
+
 async function buscarPorId(id) {
   const { rows } = await pool.query(
     'SELECT id, nome, telefone, cpf, email, informacao_adicional, data_criacao FROM clientes WHERE id = $1',
@@ -70,4 +93,4 @@ async function deletar(id) {
   await pool.query('DELETE FROM clientes WHERE id = $1', [id]);
 }
 
-module.exports = { listar, buscarPorId, possuiOrdens, criar, atualizar, deletar };
+module.exports = { listar, buscarPorTelefone, buscarPorCpf, buscarPorId, possuiOrdens, criar, atualizar, deletar };
