@@ -9,7 +9,7 @@
 
         <div class="relative z-10 flex flex-col items-center justify-center px-12 text-center">
           <h1
-            class="text-6xl font-black tracking-[-0.04em] text-white xl:text-7xl 2xl:text-8xl"
+            class="text-8xl font-black tracking-[-0.04em] text-white xl:text-7xl 2xl:text-8xl"
             style="font-family: Inter, ui-sans-serif, system-ui, sans-serif"
           >
             Workflow
