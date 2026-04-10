@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import NewOsView from "@/views/NewOsView.vue";
+import CustomerListView from "@/views/CustomerListView.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -15,6 +16,12 @@ const router = createRouter({
       path: "/new-os",
       name: "new-os",
       component: NewOsView,
+    },
+
+        {
+      path: "/customer-list",
+      name: "customer-list",
+      component: CustomerListView,
     },
   ],
 });

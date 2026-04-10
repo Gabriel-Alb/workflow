@@ -50,7 +50,7 @@
         </RouterLink>
 
         <RouterLink
-          to="/listar-clientes"
+          to="/customer-list"
           class="rounded-xl px-4 py-2 text-sm font-medium text-white/70 transition hover:bg-white/10 hover:text-white xl:px-5 2xl:px-6"
         >
           Listar clientes
