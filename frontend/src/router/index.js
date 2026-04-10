@@ -26,7 +26,19 @@ const router = createRouter({
       redirect: '/',
     },
   ],
-})
+});
+
+router.beforeEach((to) => {
+  const auth = useAuthStore();
+
+  if (!to.meta.public && !auth.isAuthenticated) {
+    return { name: "login" };
+  }
+
+  if (to.name === "login" && auth.isAuthenticated) {
+    return { name: "home" };
+  }
+});
 
 // Guard global — redireciona para /login se não autenticado
 router.beforeEach((to) => {
