@@ -174,14 +174,6 @@
                   class="h-14 w-full rounded-2xl border border-black/10 bg-[#fafafa] px-4 pr-12 text-sm text-black shadow-[0_4px_14px_rgba(0,0,0,0.04)] outline-none transition duration-200 focus:border-black focus:bg-white focus:ring-4 focus:ring-black/5"
                   @click="openDatePicker"
                 />
-
-                <button
-                  type="button"
-                  class="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-xl text-black/55 transition hover:bg-black/5 hover:text-black"
-                  @click="openDatePicker"
-                >
-                  <i class="mdi mdi-calendar-month-outline text-[20px]"></i>
-                </button>
               </div>
             </div>
 

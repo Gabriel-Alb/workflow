@@ -57,7 +57,7 @@
         </RouterLink>
 
         <RouterLink
-          to="/listar-os"
+          to="/os-list"
           class="rounded-xl px-4 py-2 text-sm font-medium text-white/70 transition hover:bg-white/10 hover:text-white xl:px-5 2xl:px-6"
         >
           Listar O.S.
@@ -65,7 +65,9 @@
       </nav>
 
       <!-- right actions -->
-      <div class="flex items-center justify-end gap-2 lg:min-w-[72px] xl:min-w-[88px]">
+      <div
+        class="flex items-center justify-end gap-2 lg:min-w-[72px] xl:min-w-[88px]"
+      >
         <!-- desktop user menu -->
         <div class="relative hidden md:block">
           <button
@@ -155,7 +157,7 @@
             </RouterLink>
 
             <RouterLink
-              to="/nova-os"
+              to="/new-os"
               class="flex items-center justify-between border-b border-white/10 py-4 text-[15px] font-medium text-white/85 transition hover:text-white"
               @click="isMobileMenuOpen = false"
             >
@@ -166,7 +168,7 @@
             </RouterLink>
 
             <RouterLink
-              to="/listar-clientes"
+              to="/customer-list"
               class="flex items-center justify-between border-b border-white/10 py-4 text-[15px] font-medium text-white/85 transition hover:text-white"
               @click="isMobileMenuOpen = false"
             >
@@ -177,7 +179,7 @@
             </RouterLink>
 
             <RouterLink
-              to="/listar-os"
+              to="/os-list"
               class="flex items-center justify-between border-b border-white/10 py-4 text-[15px] font-medium text-white/85 transition hover:text-white"
               @click="isMobileMenuOpen = false"
             >
