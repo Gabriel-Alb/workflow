@@ -45,11 +45,11 @@ const router = createRouter({
 router.beforeEach((to) => {
   const auth = useAuthStore()
 
-  if (!to.meta.publica && !auth.isAuthenticated) {
+  if (!to.meta.publica && !auth.isAutenticado) {
     return { name: 'login' }
   }
 
-  if (to.name === 'login' && auth.isAuthenticated) {
+  if (to.name === 'login' && auth.isAutenticado) {
     return { name: 'home' }
   }
 
