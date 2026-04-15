@@ -5,7 +5,6 @@ const api = axios.create({
   timeout: 10000,
 })
 
-// Injeta o token em todas as requisições autenticadas
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token')
   if (token) {
@@ -14,15 +13,17 @@ api.interceptors.request.use((config) => {
   return config
 })
 
-// Redireciona para login se o token expirar (401)
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
+    const isLoginRequest = error.config?.url?.includes('/auth/login')
+
+    if (error.response?.status === 401 && !isLoginRequest) {
       localStorage.removeItem('token')
       localStorage.removeItem('usuario')
       window.location.href = '/login'
     }
+
     return Promise.reject(error)
   }
 )
